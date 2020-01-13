@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PatrolEnemyState : EnemyState
 {
-    public float patrolSpeed;
     private Transform mPatrolTarget;
     private PatrolPoints[] mPatrolPaths;
     private PatrolPoints mCurrentPath;
@@ -18,7 +17,8 @@ public class PatrolEnemyState : EnemyState
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.transform.position = Vector3.MoveTowards(animator.transform.position, mPatrolTarget.position, Time.deltaTime);
+        animator.transform.position = Vector3.MoveTowards(animator.transform.position, mPatrolTarget.position, mMoveSpeed * Time.deltaTime);
+        animator.transform.rotation = Quaternion.Euler(Vector3.RotateTowards(animator.transform.rotation.eulerAngles, mPatrolTarget.rotation.eulerAngles, mMoveSpeed * Time.deltaTime, 0f));
         CheckIfAtDestination(animator);
     }
 

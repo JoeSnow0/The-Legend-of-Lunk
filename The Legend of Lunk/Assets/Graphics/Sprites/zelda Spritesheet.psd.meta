@@ -193,7 +193,7 @@ TextureImporter:
     second: zelda Spritesheet_62
   - first:
       213: -4580261800321248211
-    second: zelda Spritesheet_63
+    second: Sword
   - first:
       213: 9098442282471240196
     second: zelda Spritesheet_64
@@ -1706,16 +1706,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zelda Spritesheet_63
+      name: Sword
       rect:
         serializedVersion: 2
-        x: 9
+        x: 7
         y: 37
-        width: 7
+        width: 11
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 0, z: 2, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

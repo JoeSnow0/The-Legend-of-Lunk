@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b96517e3a517094b9534b25672316bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMoveSpeed: 0
+  mMoveSpeed: 1
   speed: 10
 --- !u!1102 &-5751387772108045833
 AnimatorState:
@@ -129,8 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8b1bda43f97c54c93e6870fe1414d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMoveSpeed: 0
-  patrolSpeed: 0
+  mMoveSpeed: 1
 --- !u!1107 &-1519990133973784229
 AnimatorStateMachine:
   serializedVersion: 5
@@ -230,13 +229,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isPatrolling
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -287,3 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7531335b7ea3e4cb447f66454cf6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  mPatrolMovementMultiplier: 1
+  mChaseMovementMultiplier: 2

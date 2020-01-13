@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1172571258949536703}
   - component: {fileID: 1952279066700287037}
   - component: {fileID: 5118937230446357309}
-  - component: {fileID: -2625157482779218090}
   - component: {fileID: 5064099162443550891}
+  - component: {fileID: -2625157482779218090}
   - component: {fileID: -395372565819093281}
   m_Layer: 10
   m_Name: Green_Octoroc
@@ -143,21 +143,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-2625157482779218090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3176270832551116627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7531335b7ea3e4cb447f66454cf6b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  mPatrolMovementMultiplier: 2
-  mChaseMovementMultiplier: 4
 --- !u!58 &5064099162443550891
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +159,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &-2625157482779218090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176270832551116627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7531335b7ea3e4cb447f66454cf6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  mPatrolMovementMultiplier: 1
+  mChaseMovementMultiplier: 2
 --- !u!114 &-395372565819093281
 MonoBehaviour:
   m_ObjectHideFlags: 0

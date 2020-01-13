@@ -16,6 +16,7 @@ public class ChaseEnemyState : EnemyState
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.transform.position = Vector3.MoveTowards(animator.transform.position, mChaseTarget.position,  Time.deltaTime);
+        animator.transform.rotation = Quaternion.Euler(Vector3.RotateTowards(animator.transform.rotation.eulerAngles, mChaseTarget.rotation.eulerAngles, 0f, 0f));
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

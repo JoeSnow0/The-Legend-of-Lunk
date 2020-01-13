@@ -6,16 +6,23 @@ using UnityEngine.UI;
 public class UIDisplay : MonoBehaviour
 {
     Slider mSlider;
-    PlayerController playerRef;
+    PlayerController mPlayerRef;
+    [SerializeField] Image mItemImage;
 
     private void Start()
     {
         mSlider = GetComponentInChildren<Slider>();
-        playerRef = FindObjectOfType<PlayerController>();
+        mPlayerRef = FindObjectOfType<PlayerController>();
     }
     private void Update()
     {
-        mSlider.value = playerRef.mHealth.GetHealth();
+        mSlider.value = mPlayerRef.mHealth.GetHealth();
+
+    }
+
+    public void SetItemImage(Sprite sprite)
+    {
+
     }
 
 }
