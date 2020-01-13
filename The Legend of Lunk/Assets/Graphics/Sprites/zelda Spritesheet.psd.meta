@@ -214,10 +214,10 @@ TextureImporter:
     second: zelda Spritesheet_69
   - first:
       213: 2093554936109378964
-    second: zelda Spritesheet_70
+    second: Fire_0
   - first:
       213: -193129146075668167
-    second: zelda Spritesheet_71
+    second: Fire_1
   - first:
       213: 8639153570103815757
     second: zelda Spritesheet_72
@@ -1853,7 +1853,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zelda Spritesheet_70
+      name: Fire_0
       rect:
         serializedVersion: 2
         x: 76
@@ -1874,7 +1874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zelda Spritesheet_71
+      name: Fire_1
       rect:
         serializedVersion: 2
         x: 94
