@@ -48,7 +48,7 @@ MonoBehaviour:
   mSpeed: 0
   direction: {x: 0, y: 0}
   mUnlocked: 1
-  mNumberOfUsesLeft: 3
+  mNumberOfUsesLeft: 999
   TTL: 5
 --- !u!212 &-4551161300947041753
 SpriteRenderer:

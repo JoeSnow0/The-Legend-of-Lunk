@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Vector2 mInput;
@@ -11,16 +13,27 @@ public class PlayerController : MonoBehaviour
     private Vector3 mDirection = Vector2.down;
     float itemSpawnLocationOffset = 1f;
     SecondaryAbility mSecondaryAbility;
-    //Vector3 itemSpawnLocationOffset = Vector3.zero;
     [SerializeField] int itemNumber = 0;
     [SerializeField] ItemBehaviour[] itemPrefabs;
+
+    //ItemStates
+    private ItemState currentItemState;
+    private BombItemState bombItemState;
+    private ArrowItemState arrowItemState;
+    //PlayerStates
+    private PlayerState currentPlayerState;
+    private NormalPlayerState normalPlayerState;
+    private InvinciblePlayerState invinciblePlayerState;
+    private AttackingPlayerState attackingPlayerState;
+    
+
 
     private void Start()
     {
         
-        mRigidbody = GetComponent<Rigidbody2D>();
-        mAnimator = GetComponent<Animator>();
-        mHealth = GetComponent<Health>();
+        mRigidbody = mRigidbody ?? GetComponent<Rigidbody2D>();
+        mAnimator = mAnimator ?? GetComponent<Animator>();
+        mHealth = mHealth ?? GetComponent<Health>();
         if (mRigidbody == null)
         {
             mRigidbody = gameObject.AddComponent<Rigidbody2D>();
@@ -70,7 +83,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.X))
         {
-            UseItem();
+            currentItemState.UseItem();
         }
     }
     void UpdateAnimation()
@@ -78,21 +91,15 @@ public class PlayerController : MonoBehaviour
         mAnimator.SetFloat("MoveX", mInput.x);
         mAnimator.SetFloat("MoveY", mInput.y);
     }
-    void UseItem()
+    
+    void SetState(ItemState newState)
     {
-        if (itemPrefabs[itemNumber].IsAvailable())
-        {
-            ItemBehaviour item = Instantiate(itemPrefabs[itemNumber], transform);
-            item.transform.position += itemSpawnLocationOffset * mDirection;
-            item.transform.parent = null;
-            item.direction = mDirection;
-            if(itemPrefabs[itemNumber].HasUses())
-            {
-                SubtractItemUses(itemPrefabs[itemNumber]);
-            }
-        }
-        
+        currentItemState.ExitState();
+        currentItemState = newState;
+        currentItemState.EnterState();
     }
+
+
     void SetItemUses(ItemBehaviour itemPrefab, int newAmount)
     {
         itemPrefab.mNumberOfUsesLeft = newAmount;

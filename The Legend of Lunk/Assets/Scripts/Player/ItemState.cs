@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface PlayerState
+public interface ItemState 
 {
     void EnterState();
     void UpdateState();
     void OnCollisionEnter2D();
-    void ToInvincibleState();
-    void ToNormalState();
-    void ToAttackingState();
+    void ToBombState();
+    void ToArrowState();
     void ExitState();
+
+    void UseItem();
 }
