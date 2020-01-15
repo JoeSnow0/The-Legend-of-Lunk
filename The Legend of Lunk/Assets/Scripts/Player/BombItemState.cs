@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BombItemState : ItemState
 {
+    private ItemBehaviour itemPrefab;
     int ammo;
     private PlayerController mPlayerController;
-    public void EnterState()
+    public void EnterState(PlayerController player, ItemBehaviour item)
     {
         
     }
@@ -38,6 +39,6 @@ public class BombItemState : ItemState
 
     public void UseItem()
     {
-
+        GameObject.Instantiate(itemPrefab);
     }
 }

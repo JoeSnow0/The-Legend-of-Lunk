@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ArrowItemState : ItemState
 {
-    private ItemBehaviour itemPrefab;
+    private PlayerController mPlayer;
+    ItemBehaviour itemPrefab;
     private int CurrentAmmo;
     private int MaxAmmo;
-    public void EnterState()
+    public void EnterState(PlayerController player, ItemBehaviour item)
     {
-        throw new System.NotImplementedException();
+        itemPrefab = item;
+        mPlayer = player;
     }
 
     public void ExitState()
@@ -19,26 +21,27 @@ public class ArrowItemState : ItemState
 
     public void OnCollisionEnter2D()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void ToArrowState()
     {
-        throw new System.NotImplementedException();
+        //Nothing, same state
     }
 
     public void ToBombState()
     {
+        
         throw new System.NotImplementedException();
     }
 
     public void UpdateState()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void UseItem()
     {
-        
+        GameObject.Instantiate(itemPrefab);
     }
 }

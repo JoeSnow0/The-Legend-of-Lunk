@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ItemState 
 {
-    void EnterState();
+    void EnterState(PlayerController player, ItemBehaviour item);
     void UpdateState();
     void OnCollisionEnter2D();
     void ToBombState();

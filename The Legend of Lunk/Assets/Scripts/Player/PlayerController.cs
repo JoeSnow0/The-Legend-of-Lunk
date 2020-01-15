@@ -6,22 +6,24 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {
+    public enum ItemPrefabIndex {Arrow, Bomb};
+    public ItemPrefabIndex itemPrefabIndex;
     [SerializeField] Vector2 mInput;
     private Rigidbody2D mRigidbody;
     Animator mAnimator;
     public Health mHealth;
-    private Vector3 mDirection = Vector2.down;
+    public Vector3 mDirection = Vector2.down;
     float itemSpawnLocationOffset = 1f;
     SecondaryAbility mSecondaryAbility;
     [SerializeField] int itemNumber = 0;
-    [SerializeField] ItemBehaviour[] itemPrefabs;
+    public ItemBehaviour[] itemPrefabs;
 
     //ItemStates
-    private ItemState currentItemState;
+    public ItemState currentItemState;
     private BombItemState bombItemState;
     private ArrowItemState arrowItemState;
     //PlayerStates
-    private PlayerState currentPlayerState;
+    public PlayerState currentPlayerState;
     private NormalPlayerState normalPlayerState;
     private InvinciblePlayerState invinciblePlayerState;
     private AttackingPlayerState attackingPlayerState;
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         currentItemState.ExitState();
         currentItemState = newState;
-        currentItemState.EnterState();
+        currentItemState.EnterState(this, itemPrefabs);
     }
 
 
